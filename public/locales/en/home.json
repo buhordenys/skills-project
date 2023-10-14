@@ -1,0 +1,12 @@
+{
+  "welcomeMessage": "Hi! It's my own pet-project. I hope that I surprise you!",
+  "getStarted": "Let's start to become acquainted with my learned technologies:",
+  "payments": "Payments",
+  "paymentsInformation": "In this section you will see all payments technologies, e.g. stripe, paypal etc..",
+  "streams": "Streams",
+  "graphs": "Graphs",
+  "graphsInformation": "All technologies of graphs. Started with Highcharts.js",
+  "streamsInformation": "All technologies of streams video. Started with Agora",
+  "inProgress": "..in progress",
+  "inProgressInformation": "Technologies for studying which I'll done in the nearly future"
+}

@@ -1,0 +1,57 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./colors";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  h3 {
+    @apply mb-4 text-2xl;
+  }
+}
+
+.a-title {
+  color: $blue;
+  @apply no-underline hover:underline focus:underline active:underline;
+}
+
+.card {
+  border-color: $cornflowerBlue;
+  @apply m-4 min-h-[215] flex-none basis-1/4 p-6 border text-left text-inherit no-underline rounded-lg transition duration-150 ease-in hover:text-[#0070F3] hover:border-[#0070F3] focus:text-[#0070F3] focus:border-[#0070F3] active:text-[#0070F3] active:border-[#0070F3]
+}
+
+.page-content{
+  @apply flex flex-col flex-1 p-6 text-base relative overflow-auto;
+}
+
+.breadcrumbs-item {
+  color: $regentGray;
+  @apply relative text-sm overflow-hidden whitespace-nowrap overflow-ellipsis;
+  &:not(:last-child):hover {
+    @apply underline;
+  }
+  &:last-child {
+    color: $tuna;
+    @apply mr-0 font-semibold text-base;
+    &:after {
+      @apply hidden;
+    }
+  }
+}
