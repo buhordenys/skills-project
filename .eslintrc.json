@@ -1,0 +1,83 @@
+{
+  //  "root": true,
+  "env": {
+    "node": true,
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "plugins": [
+    "testing-library",
+    "jest",
+    "react",
+    "@typescript-eslint",
+    "require-explicit-generics",
+    "simple-import-sort"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:import/typescript"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state", "res"] }],
+    "comma-dangle": 0,
+    "jsx-a11y/label-has-for": "off",
+    "max-len": ["error", {
+      "code": 120,
+      "ignorePattern": "^import"
+    }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/__tests__/**", "**/*.test.ts", "**/*.test.tsx"]}],
+    "require-explicit-generics/require-explicit-generics": [
+      "error",
+      ["builder.query", "builder.mutation"]
+    ],
+    "simple-import-sort/imports": ["error", {
+      "groups": [
+        ["^\\u0000"], // side effect imports
+        ["^react$", "^react-native$", "^react", "^@?\\w"], // libraries order
+        ["^\\.\\.(?!/?$)", "^\\.\\./?$", // parent
+          "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"], // other reletions
+        ["^@?\\w.*\\u0000$", "^[^.].*\\u0000$", "^\\..*\\u0000$"], // types
+        ["^.+assets.+\\..+$"], // assets
+        ["^.+\\.s?css$"]] // style
+    }],
+    "import/order": "off", // disable default import order rule to use simple-import-sort
+    "radix": "off",
+    "react/jsx-props-no-spreading": ["error", {
+      "exceptions": ["input", "**/*.stories.tsx", "AuthComponent", "Component"]
+    }],
+    "react/jsx-uses-react": "off", // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+    "react/react-in-jsx-scope": "off", // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+    "react/jsx-no-leaked-render": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-imports": "error"
+  },
+  "overrides": [
+    { //https://redux-toolkit.js.org/usage/immer-reducers#linting-state-mutations
+      "files": [
+        "src/**/**/slice.ts"
+      ],
+      "rules": {
+        "no-param-reassign": ["error", { "props": false }]
+      }
+    },
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "react/jsx-props-no-spreading": "off",
+        "import/no-anonymous-default-export": "off"
+      }
+    }
+  ]
+}
