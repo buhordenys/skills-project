@@ -1,7 +1,5 @@
-interface IHomeResponse {
+export interface IHomeState {
   id?: number;
   token?: string;
   firstName?: string;
 }
-
-export default IHomeResponse;

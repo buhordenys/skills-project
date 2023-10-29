@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import type IHomeResponse from './interfaces/IHomeResponse';
+import type { IHomeState } from './interfaces/IHomeResponse';
 
-export const initialState: IHomeResponse = {
+export const initialState: IHomeState = {
   id: undefined,
   token: undefined,
 };

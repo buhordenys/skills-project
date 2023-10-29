@@ -12,6 +12,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import mainApi from './store/apis/mainApi';
+import graphs from './store/slices/graphs/slice';
 import home from './store/slices/home/slice';
 
 const persistConfig = {
@@ -24,7 +26,9 @@ const persistConfig = {
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
+    [mainApi.reducerPath]: mainApi.reducer,
     home,
+    graphs,
   }),
 );
 
@@ -36,7 +40,9 @@ export function makeStore(preloadedState = {}) {
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat([
+      mainApi.middleware,
+    ]),
   });
 }
 
