@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 
-import technologies from '../../../constants/tehnologies';
+import { technologies } from '../../../constants/mocks';
 
 function Cards() {
   const { t } = useTranslation('home');

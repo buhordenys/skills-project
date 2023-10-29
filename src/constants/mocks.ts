@@ -1,3 +1,39 @@
+import { CHARTS_TYPES } from './general';
+
+export const technologies = [
+  {
+    tKey: 'graphs',
+    href: '/graphs',
+    activePath: 'graphs',
+    isDisabled: false,
+  },
+  {
+    tKey: 'payments',
+    href: '/payments',
+    activePath: 'payments',
+    isDisabled: true,
+  },
+  {
+    tKey: 'streams',
+    href: '/streams',
+    activePath: 'streams',
+    isDisabled: true,
+  },
+];
+
+export const graphsTabs = [
+  {
+    id: 1,
+    title: CHARTS_TYPES.HIGHCHARTS_LINE,
+    active: true,
+  },
+  {
+    id: 2,
+    title: CHARTS_TYPES.APEXCHARTS_LINE,
+    active: false,
+  },
+];
+
 export const paymentsItems = [
   {
     id: 'price_1MM8LjJfILczTqO2ZU6YfbRX',
