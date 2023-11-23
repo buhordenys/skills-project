@@ -4,5 +4,8 @@
   "pie": "Pie",
   "bar": "Bar",
   "highcharts": "Highcharts",
-  "apexcharts": "Apexcharts"
+  "apexcharts": "Apexcharts",
+  "currency": "Currency",
+  "tooltipPointText": "Price for 1 EURO: ",
+  "rate": "Rate (per 1 {{currency}})"
 }

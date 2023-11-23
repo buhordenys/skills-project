@@ -1,9 +1,11 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import { POPULAR_CURRENCIES } from '../../src/constants/general';
 import Page from '../../src/layout/page/Page';
 import GraphsView from '../../src/pages/Graphs/GraphsView';
 import { useAppDispatch, useAppSelector } from '../../src/store/hooks/useApp';
+import { useGetCurrencyHistoricalQuery } from '../../src/store/slices/currency/api/currencyApis';
 import useGetGraphsQuery from '../../src/store/slices/graphs/api/graphsApi';
 import getActiveGraph from '../../src/store/slices/graphs/selectors';
 import { setGraphsStates } from '../../src/store/slices/graphs/slice';
@@ -16,7 +18,11 @@ function Graphs() {
 
   const { activeGraph } = useAppSelector(getActiveGraph);
 
-  const { data: graphs } = useGetGraphsQuery();
+  const { data: graphs, isSuccess } = useGetGraphsQuery();
+  const { data: currencyHistoricalQuery } = useGetCurrencyHistoricalQuery({
+    date: new Date().toISOString().slice(0, 10),
+    symbols: POPULAR_CURRENCIES.join(','),
+  });
 
   const handlerChange = (active: TChartsTypes) => {
     dispatch(setGraphsStates({ activeGraph: active }));
@@ -24,11 +30,14 @@ function Graphs() {
 
   return (
     <Page>
-      <GraphsView
-        graphs={graphs?.data || []}
-        activeGraph={activeGraph}
-        handlerChange={handlerChange}
-      />
+      {isSuccess ? (
+        <GraphsView
+          graphs={graphs?.data || []}
+          historicalRates={currencyHistoricalQuery?.rates || {}}
+          activeGraph={activeGraph}
+          handlerChange={handlerChange}
+        />
+      ) : null}
     </Page>
   );
 }

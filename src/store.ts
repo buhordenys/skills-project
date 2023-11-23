@@ -40,9 +40,7 @@ export function makeStore(preloadedState = {}) {
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat([
-      mainApi.middleware,
-    ]),
+    }).concat([mainApi.middleware]),
   });
 }
 

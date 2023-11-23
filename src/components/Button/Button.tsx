@@ -1,11 +1,11 @@
 import type { IButton } from './interfaces/IButton';
 
 function Button({
-  type, children, disabled, onClick, ariaLabel, className,
+  children, disabled, onClick, ariaLabel, className,
 }: IButton) {
   return (
     <button
-      type={type}
+      type="button"
       disabled={disabled}
       onClick={onClick}
       aria-label={ariaLabel}
