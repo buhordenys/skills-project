@@ -3,20 +3,19 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   FORBIDDEN, INTERNAL_SERVER_ERROR, METHOD_NOT_ALLOWED, NOT_FOUND,
 } from '../../constants/httpStatusCodes';
-import { API_BASE_URL } from '../../constants/requestUrls';
 
 import type { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import type { BaseQueryFn, FetchArgs } from '@reduxjs/toolkit/dist/query/react';
 
 const authBaseQuery = fetchBaseQuery({
-  baseUrl: API_BASE_URL,
+  baseUrl: process.env.NEXT_PUBLIC_API_URL,
   prepareHeaders: (headers) => {
     headers.set('Content-Type', 'application/json');
     return headers;
   },
 });
 
-export const appBaseQueryWithReauth: BaseQueryFn<
+export const appBaseQueryWithReAuth: BaseQueryFn<
 string | FetchArgs,
 unknown,
 FetchBaseQueryError
@@ -39,7 +38,7 @@ FetchBaseQueryError
 
 const mainApi = createApi({
   reducerPath: 'mainApi',
-  baseQuery: appBaseQueryWithReauth,
+  baseQuery: appBaseQueryWithReAuth,
   endpoints: () => ({}),
 });
 

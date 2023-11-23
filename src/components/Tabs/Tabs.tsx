@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { BUTTON } from '../../constants/general';
 import Button from '../Button/Button';
 
 import type { ITabs } from './interfaces/ITabs';
@@ -18,7 +17,6 @@ function Tabs({ tab, activeGraph, handlerChange }: ITabs) {
   return (
     <div>
       <Button
-        type={BUTTON}
         onClick={() => handlerChange(tab.title)}
         className={`button-large ${activeBorder} text-lg font-medium text-gray-500 rounded-t-lg`}
         disabled={isActive}

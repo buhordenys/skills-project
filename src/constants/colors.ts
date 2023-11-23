@@ -2,6 +2,7 @@ const colors = {
   dodgerBlue: 'rgba(0, 114, 255, 1)',
   pattensBlue: 'rgba(0, 114, 255, 0.15)',
   solitude: 'rgb(0, 114, 255, 0.1)',
+  tuna: '#363A42',
   white: 'rgba(255, 255, 255, 1)',
   oceanGreen: 'rgba(54, 179, 126, 1)',
   appleGreen: 'rgb(54, 179, 126, 0.1)',

@@ -3,10 +3,13 @@ import { useTranslation } from 'next-i18next';
 import Tabs from '../../components/Tabs/Tabs';
 import Title from '../../components/Title/Title';
 import Layout from '../../layout/Layout';
+import GraphsContent from './components/GraphsContent';
 
 import type { IGraphsView } from './interfaces/IGraphsView';
 
-function GraphsView({ graphs, activeGraph, handlerChange }: IGraphsView) {
+function GraphsView({
+  graphs, historicalRates, activeGraph, handlerChange,
+}: IGraphsView) {
   const { t } = useTranslation('graphs');
 
   return (
@@ -28,6 +31,10 @@ function GraphsView({ graphs, activeGraph, handlerChange }: IGraphsView) {
           </div>
           <div className="absolute bottom-0 w-full h-px bg-gray-300 " />
         </div>
+        <GraphsContent
+          activeGraph={activeGraph}
+          historicalRates={historicalRates}
+        />
       </div>
     </Layout>
   );

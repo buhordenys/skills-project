@@ -10,6 +10,7 @@ export const TABS_PIE = 'pie';
 
 export const HIGHCHARTS_LINE = 'highcharts';
 export const APEXCHARTS_LINE = 'apexcharts';
+export const POPULAR_CURRENCIES = ['USD', 'GBP', 'CNY', 'CHF', 'CAD', 'AUD', 'HKD', 'UAH', 'NZD'];
 export const TABS_TYPES = { TABS_LINE, TABS_BAR, TABS_PIE } as const;
 export const CHARTS_TYPES = { HIGHCHARTS_LINE, APEXCHARTS_LINE } as const;
 
